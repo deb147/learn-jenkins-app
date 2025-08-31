@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                sh 'echo "Without docker"'
+                withEnv(['PATH+EXTRA=/usr/bin:/bin']) {
+                    sh 'echo "Hello, World!"'
+                }
+                //sh 'echo "Without docker"'
                 //echo 'test'
             }
         }
